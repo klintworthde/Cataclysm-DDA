@@ -1,0 +1,146 @@
+[
+    {
+        "type":"monstergroup",
+        "name" : "GROUP_KITTIES",
+        "default" : "mon_null",
+        "monsters" : [
+            { "monster" : "mon_cat",    "freq" : 100, "pack_size" : [1,5], "cost_multiplier" : 1 }
+        ]
+    },{
+        "type":"monstergroup",
+        "name" : "GROUP_PUPPIES",
+        "default" : "mon_null",
+        "monsters" : [
+            { "monster" : "mon_dog",        "freq" : 100, "pack_size" : [1,5], "cost_multiplier" : 1, "ends" :   167 },
+            { "monster" : "mon_zombie_dog", "freq" : 100, "pack_size" : [2,4], "cost_multiplier" : 1, "starts" : 168 }
+        ]
+    },{
+        "type"  : "item_group",
+        "id"    : "pet_restraints",
+        "items" : [
+            ["rope_6",         65],
+            ["leather_collar", 50],
+            ["kevlar_harness", 5]
+        ]
+    },{
+        "type"  : "item_group",
+        "id"    : "pet_cat",
+        "items" : [
+            ["catfood",      80],
+            ["can_tuna",     40],
+            ["bowl_plastic", 40]
+        ]
+    },{
+        "type"  : "item_group",
+        "id"    : "pet_dog",
+        "items" : [
+            ["dogfood",     80],
+            ["dog_whistle", 50],
+            ["bone",        60],
+            ["bacon",       30]
+        ]
+    },{
+        "type" : "overmap_terrain",
+        "id" : "s_pet",
+        "name" : "pet shop",
+        "rotate" : true,
+        "sym" : [94, 62, 118, 60],
+        "color" : "i_green",
+        "see_cost" : 5,
+        "extras" : "build",
+        "mondensity" : 2,
+        "sidewalk" : true,
+        "mapgen": 
+        [ 
+            {
+                "method": "json",
+                "weight": 100000,
+                "object": {
+                    "rows": [
+                        "zzzzzzzzzzzzzzzzzsssszzz",
+                        ".................ssss...",
+                        ".................ssss...",
+                        ".................ssss...",
+                        "..zssssssssssssssssssz..",
+                        "..zssssssssssssssssssz..",
+                        "..|====--======--=DD=|..",
+                        "..|ffffH   ##### PrrP|..",
+                        "..|ffffH          rr |..",
+                        "..|ffffH          rr |..",
+                        "..|L===-      rrrrrrr|..",
+                        "..|           rCC$CCr|..",
+                        "..|           rCrrrrr|..",
+                        "..|           rCCCCCr|..",
+                        "..|L===-      rrrrrrr|..",
+                        "..|ffffH            R|..",
+                        "..|ffffH  ###  RRR  R|..",
+                        "..|ffffH            R|..",
+                        "..|----------+-----+-|..",
+                        ".....ssL     rrro|  x|..",
+                        ".....ss|cTTFSoooo|t S|..",
+                        ".....ss|----WW-------|..",
+                        "........................",
+                        "........................"
+                    ],
+                    "terrain": {
+                        ".": "t_grass",
+                        "z": "t_shrub",
+                        "s": "t_sidewalk",
+                        "|": "t_wall_v",
+                        "-": "t_wall_h",
+                        "=": "t_wall_glass_h",
+                        "H": "t_wall_glass_v",
+                        "D": "t_door_glass_c",
+                        " ": "t_linoleum_gray",
+                        "#": "t_linoleum_gray",
+                        "R": "t_linoleum_gray",
+                        "T": "t_linoleum_gray",
+                        "c": "t_linoleum_gray",
+                        "S": "t_linoleum_gray",
+                        "F": "t_linoleum_gray",
+                        "P": "t_linoleum_gray",
+                        "x": "t_linoleum_gray",
+                        "t": "t_linoleum_gray",
+                        "f": "t_floor",
+                        "r": "t_carpet_red",
+                        "C": "t_carpet_red",
+                        "o": "t_carpet_red",
+                        "$": "t_console_broken",
+                        "+": "t_door_c",
+                        "L": "t_door_locked",
+                        "W": "t_window_domestic"
+                    },
+                    "furniture": {
+                        "#": "f_counter",
+                        "C": "f_counter",
+                        "P": "f_indoor_plant",
+                        "R": "f_rack",
+                        "F": "f_fridge",
+                        "S": "f_sink",
+                        "T": "f_table",
+                        "c": "f_chair",
+                        "o": "f_sofa",
+                        "t": "f_toilet",
+                        "x": "f_trashcan"
+                    },
+                    "place_specials": [
+                        { "type": "toilet",     "x": 18, "y": 20 }
+                    ],
+                    "add": [
+                        { "item": "microwave", "x": 16, "y": 20, "chance": 100}
+                    ],
+                    "place_groups": [
+                        { "monster": "GROUP_KITTIES",  "chance": 75, "x": [3,6],   "y": [7,9] },
+                        { "monster": "GROUP_PUPPIES",  "chance": 75, "x": [3,6],   "y": [15,17] },
+                        { "item":    "pet_restraints", "chance": 60, "x": [11,15], "y": 7 },
+                        { "item":    "pet_cat",        "chance": 60, "x": [15,17], "y": 16,      "repeat": 2 },
+                        { "item":    "pet_dog",        "chance": 60, "x": 20,      "y": [15,17], "repeat": 2 },
+                        { "item":    "trash",          "chance": 60, "x": 20,      "y": 19 },
+                        { "item":    "snacks",         "chance": 80, "x": 11,      "y": 20 }
+                    ],
+                "comment": "end of mapgen json definition ---v"         
+                }
+            }
+        ]
+    }
+]
